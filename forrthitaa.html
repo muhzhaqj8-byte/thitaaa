@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untuk Kamu ❤️</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Love Background */
+    .hearts {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      color: #ff4d94;
+      animation: float 8s linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); }
+      100% { transform: translateY(-100px) rotate(360deg); }
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .page {
+      display: none;
+      text-align: center;
+      max-width: 600px;
+    }
+
+    .page.active {
+      display: block;
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 30px;
+      color: #ff99cc;
+      text-shadow: 0 0 20px #ff4d94;
+    }
+
+    p {
+      font-size: 1.4rem;
+      line-height: 1.8;
+      margin-bottom: 40px;
+      color: #ddd;
+    }
+
+    .btn {
+      background: linear-gradient(45deg, #ff4d94, #ff80bf);
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.3rem;
+      border-radius: 50px;
+      cursor: pointer;
+      margin: 10px;
+      box-shadow: 0 10px 30px rgba(255, 77, 148, 0.4);
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 15px 40px rgba(255, 77, 148, 0.6);
+    }
+
+    .love-icon {
+      font-size: 2.5rem;
+      margin: 20px 0;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hearts" id="hearts"></div>
+
+  <div class="container">
+
+    <!-- Halaman 1 -->
+    <div class="page active" id="page1">
+      <h1>Haloo ❤️</h1>
+      <p style="font-size: 1.8rem; margin: 30px 0;">ini web sa buat khusus buatt kauu</p>
+      <button class="btn" onclick="nextPage(2)">pencet ini 💕</button>
+    </div>
+
+    <!-- Halaman 2 -->
+    <div class="page" id="page2">
+      <div class="love-icon">💖</div>
+      <h1>buat Radwa Nur Tahira</h1>
+      <p>
+        jujurr sa sukaa sama kauu sa nyaman sekalii sama kauu mungkin ko sudah tau juga jadi nda terlalu berguna juga sa bilang begini tapi di sini sa cuma mau mengungkapan perasaan ku sajaa urusan ko terima atau ndaa itu belakangan karna sa rasa sa masih belum pantas juga sa masih banyak kurang kuuu jadiii terima kasihh sudahh jadi orangg yang palinggg sa sayang sa berterimakasih sekaliii 
+      </p>
+      <button class="btn" onclick="nextPage(3)">Lanjut ya... 🥺</button>
+    </div>
+
+   <!-- Halaman 3 -->
+    <div class="page" id="page3">
+      <h1>sedikitt tambahan</h1>
+      <p>
+        dii sinii sa nda berharapp banyakk buatt ko terima saya karna salah ku ke kauu itu banyak sa tauu ituu dan masii banyakyang harus sa lakukan jadi sa berpikiur buat tidak terlalu banyak berharap harapan ku ituu nantiii kalauu sudahh sukses insya alah sa datang dengan persiapan yang lebih matang itupun keputusan nya juga ada di kauu intinyaa sa mauu jadii orang yang suksess duluuu maaff kaloo sa buatt kaauu ilfeel, risih atau semacam nya
+      </p>
+      <!-- <p><strong>mauu kah fotbarr </strong></p> -->
+      <button onclick="alert('💕 Terima kasih udah baca confession aku!')">💕 Iya</button>
+      <button onclick="alert('😢 Semoga suatu saat kamu kasih kesempatan ya...')">Maaf</button>
+      <button onclick="prevPage()">Kembali</button>
+    </div>
+
+  </div>
+
+  <script>
+    function showPage(pageNum) {
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
+      document.getElementById('page' + pageNum).classList.add('active');
+    }
+
+    function nextPage(pageNum) {
+      showPage(pageNum);
+    }
+
+    function prevPage() {
+      const currentPage = document.querySelector('.page.active').id;
+      const currentNum = parseInt(currentPage.replace('page', ''));
+      showPage(currentNum - 1);
+    }
+  </script>
+
+</body>
+</html>>
